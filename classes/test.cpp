@@ -1,12 +1,13 @@
 #include <iostream>
 using namespace std;
+
 namespace ABC {
     class A {
     public:
-        A() { 
-            cout << "A::A() " << endl;
-        };
-    
+        A(int _a, int _b, int _c) : _a(_a), _b(_b), _c(_c) {
+            cout << " A::A(int,int,int)" << endl;
+        }
+
         A& operator=(const A& a)  {
             cout << "A::operator=(const &A) =>" << endl;
             this->adjust_values(a.calc());
@@ -34,13 +35,11 @@ namespace ABC {
 
     class B: public A {
     public:
-        B() {};
-        B(int a, int b, int c) {
-            //: A::_a{a}, A::_b{b},A::_c{c} {
-            _a = a; _b = b; _c = c;
-            std::cout << "B::B(int,int,int)" << std::endl;
+
+        B(int _a, int _b, int _c) : A(_a, _b, _c) {
+            cout << "  B::B(int,int,int)" << endl;
         }
-    
+
         virtual void toString(std::ostream& os) const {
             os << "ABC::B@" << this;
             os << "{a:";
@@ -72,9 +71,8 @@ namespace ABC {
 
     class C: public A {
     public:
-        C(int a, int b, int c) {
-            std::cout << "C::C(int,int,int)" << std::endl;
-            _a = a; _b = b; _c = c;
+        C(int _a, int _b, int _c) : A(_a, _b, _c) {
+            cout << " C::C(int,int,int)" << endl;
         }
 
         void toString(std::ostream& os) const {
@@ -105,15 +103,20 @@ namespace ABC {
 
 
 int main (int argc , char** argv) {
+    std::cout << "create B (b1)" << std::endl;
     ABC::B b1{1,2,3};
     std::cout << " b1 = " << b1 << std::endl;
 
+    std::cout << "create B (b2)" << std::endl;
     ABC::B b2{2,3,4};
     std::cout << "b2 = " << b2 << std::endl;
 
+    std::cout << "create C (c1)" << std::endl;
     ABC::C c1{11,22,33};
     std::cout << " c1 = " << c1 << std::endl;
-    b1 = c1;
+
+    std::cout << "Assignment b1=c1" << std::endl;
+    b1 = c1;    
     std::cout << " b1= " << b1 << std::endl;
 
     b1 = b2;

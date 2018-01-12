@@ -1,10 +1,10 @@
 //
-// Created by danter on 2018-01-10.
+// Created by danter on 2018-01-07.
 //
 
 #include <cstdlib>
 #include <iostream>
-#include "MergeSort.h"
+#include "QuickSort.h"
 
 void print(int *a, int num);
 
@@ -15,7 +15,7 @@ main (int argc, char **argv)
 
     print(a, 8);
 
-    sort::MergeSort<int>(a, 8);
+    sort::qsort2<int>(a, 8);
     print(a, 8);
     exit(0);
 }

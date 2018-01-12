@@ -5,14 +5,9 @@
 #ifndef C_EXPERIMENTS_QUICKSORT_H
 #define C_EXPERIMENTS_QUICKSORT_H
 
-namespace sort {
+#include "Sort.h"
 
-    template <class T>
-    void swap0(T *a , int i, int j) {
-        int w = a[i];
-        a[i] = a[j];
-        a[j] = w;
-    }
+namespace sort {
 
     template <class T>
     void qsort(T *a , int n)
@@ -44,13 +39,13 @@ namespace sort {
     void qsort2(T *a, int n) {
         int i, j;
         T x, w;
-
         do
         {
             i = 0;
-            j = n - 1;
+            j = n-1;
             x = a[j/2];
-            do {
+            do
+            {
                 while (a[i] < x) i++;
                 while (a[j] > x) j--;
                 if (i < j) {
@@ -59,13 +54,13 @@ namespace sort {
                     if (i == j) {
                         i++;
                         j--;
+                        break;
                     }
-                    break;
                 }
+
             } while (++i <= --j);
 
-            if (j+1 < n-i)
-            {
+            if (j+1 < n-i) {
                 if (j > 0) qsort2(a, j+1);
                 a += i;
                 n -= i;
@@ -73,6 +68,7 @@ namespace sort {
                 if (i < n-1) qsort2(a+i, n-i);
                 n = j + 1;
             }
+
 
         } while (n > 1);
     }

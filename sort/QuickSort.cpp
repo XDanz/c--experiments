@@ -15,7 +15,7 @@ main (int argc, char **argv)
 
     print(a, 8);
 
-    sort::qsort<int>(a, 8);
+    sort::qsort2<int>(a, 8);
     print(a, 8);
     exit(0);
 }

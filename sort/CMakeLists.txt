@@ -14,3 +14,8 @@ target_link_libraries(runQSortTest gtest ${CMAKE_THREAD_LIBS_INIT})
 add_executable(quickSortTest QSortTest.cpp)
 target_link_libraries(quickSortTest gtest gtest_main)
 target_link_libraries(quickSortTest gtest ${CMAKE_THREAD_LIBS_INIT})
+
+
+add_executable(quickSortTest2 QSortTest2.cpp)
+target_link_libraries(quickSortTest2 gtest gtest_main)
+target_link_libraries(quickSortTest2 gtest ${CMAKE_THREAD_LIBS_INIT})

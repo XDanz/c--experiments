@@ -9,3 +9,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 add_subdirectory(sort)
 add_subdirectory(classes)
+add_subdirectory(threads)
+add_subdirectory(move)
